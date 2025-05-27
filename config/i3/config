@@ -165,6 +165,7 @@ exec discord
 exec_always picom -b
 exec_always ~/.config/polybar/rename-workspaces.sh &
 exec_always xinput set-prop 13 "libinput Accel Profile Enabled" 0 1 0
+exec --no-startup-id dunst
 
 # Start XDG autostart
 exec --no-startup-id dex --autostart --environment i3
