@@ -1,2 +1,2 @@
-# i3dotfiles
-My i3wm dotfiles :D
+# Hello!
+This is my repository to my i3wm files.
