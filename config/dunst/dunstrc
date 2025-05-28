@@ -124,13 +124,13 @@
 
     background = "#221C28"
     foreground = "#FFFFFF"
-    timeout = 10
+    timeout = 3
     default_icon = dialog-information
 
 [urgency_normal]
     background = "#221C28"
     foreground = "#FFFFFF"
-    timeout = 10
+    timeout = 3
     override_pause_level = 30
     default_icon = dialog-information
 
