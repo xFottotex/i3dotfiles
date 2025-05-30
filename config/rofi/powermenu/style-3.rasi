@@ -1,0 +1,173 @@
+/*-*- mode: css; -*-*/
+
+/*****----- Configuration -----*****/
+configuration {
+    show-icons:                 false;
+}
+
+/*****----- Global Properties -----*****/
+* {
+    /* Resolution : 1920x1080 */
+    mainbox-spacing:             50px;
+    mainbox-margin:              50px;
+    message-margin:              0px 300px;
+    message-padding:             12px;
+    message-border-radius:       12px;
+    listview-spacing:            25px;
+    element-padding:             35px 0px;
+    element-border-radius:       60px;
+
+    prompt-font:                 "Cascadia Code Bold 48";
+    textbox-font:                "Cascadia Code 12";
+    element-text-font:           "Cascadia Code 48";
+
+    background:                  rgba(34, 28, 40, 0.5);
+    background-alt:              rgba(42, 35, 51, 0.5);
+    foreground:                  #D2AFFF;
+    selected:                    #A35EFF;
+    active:                      #98C379FF;
+    urgent:                      #E06C75FF;
+
+    background-window:           @background;
+    background-normal:           @background-alt;
+    background-selected:         @selected;
+    foreground-normal:           @foreground;
+    foreground-selected:         @background;
+}
+
+/*****----- Main Window -----*****/
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    enabled:                     true;
+    width:                       1000px;
+    border:                      0px solid;
+    border-radius:               30px;
+    border-color:                @selected;
+    background-color:            var(background-window);
+    cursor:                      "default";
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    enabled:                     true;
+    spacing:                     var(mainbox-spacing);
+    margin:                      var(mainbox-margin);
+    padding:                     0px;
+    border:                      0px solid;
+    border-radius:               0px 0px 0px 0px;
+    border-color:                @selected;
+    background-color:            transparent;
+    children:                    [ "dummy", "inputbar", "listview", "message", "dummy" ];
+}
+
+/*****----- Inputbar -----*****/
+inputbar {
+    enabled:                     true;
+    spacing:                     10px;
+    padding:                     0px;
+    border:                      0px solid;
+    border-radius:               0px;
+    border-color:                @selected;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    children:                    [ "dummy", "prompt", "dummy"];
+}
+
+dummy {
+    enabled:                     true;
+    background-color:            transparent;
+}
+
+prompt {
+    enabled:                     true;
+    font:                        var(prompt-font);
+    background-color:            transparent;
+    text-color:                  var(foreground-normal);
+}
+
+/*****----- Message -----*****/
+message {
+    enabled:                     true;
+    margin:                      var(message-margin);
+    padding:                     var(message-padding);
+    border:                      0px solid;
+    border-radius:               var(message-border-radius);
+    border-color:                @selected;
+    background-color:            var(background-normal);
+    text-color:                  var(foreground-normal);
+}
+
+textbox {
+    enabled:                     true;
+    font:                        var(textbox-font);
+    background-color:            transparent;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+    highlight:                   inherit;
+    cursor:                      text;
+}
+
+/*****----- Listview -----*****/
+listview {
+    enabled:                     true;
+    expand:                      false;
+    columns:                     5;
+    lines:                       1;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    
+    spacing:                     var(listview-spacing);
+    border:                      0px solid;
+    border-radius:               0px;
+    border-color:                @selected;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    cursor:                      "default";
+}
+
+/*****----- Elements -----*****/
+element {
+    enabled:                     true;
+    spacing:                     10px;
+    margin:                      0px;
+    padding:                     var(element-padding);
+    border:                      0px solid;
+    border-radius:               var(element-border-radius);
+    border-color:                @selected;
+    background-color:            var(background-normal);
+    text-color:                  var(foreground-normal);
+    orientation:                 vertical;
+    cursor:                      pointer;
+}
+
+element normal.normal {
+    background-color:            var(background-normal);
+    text-color:                  var(foreground-normal);
+}
+
+element selected.normal {
+    border:                      0px 0px 2px 0px;
+    border-radius:               var(element-border-radius);
+    border-color:                @selected;
+    background-color:            var(background-selected);
+    text-color:                  var(foreground-selected);
+}
+
+element-text {
+    font:                        var(element-text-font);
+    background-color:            transparent;
+    text-color:                  inherit;
+    highlight:                   inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}
